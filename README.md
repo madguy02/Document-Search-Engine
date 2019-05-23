@@ -1,6 +1,6 @@
-###Document Search Engine
+### Document Search Engine
 
-##### Date 24/05/2019 : This is the very first iteration of the search engine written in JS. This will develop gradually in the coming days until deadline.
+##### (Day 1) Date 24/05/2019 : This is the very first iteration of the search engine written in JS. This will develop gradually in the coming days until deadline.
 
 ##### Steps to Execute current code
 

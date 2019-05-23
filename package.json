@@ -1,0 +1,23 @@
+{
+  "name": "document-search-engine",
+  "version": "0.1.0",
+  "description": "Search Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madguy02/Document-Search-Engine.git"
+  },
+  "author": "Manish Kakoti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madguy02/Document-Search-Engine/issues"
+  },
+  "homepage": "https://github.com/madguy02/Document-Search-Engine#readme",
+  "dependencies": {
+    "elasticsearch": "^16.0.0",
+    "tika": "^1.6.1"
+  }
+}

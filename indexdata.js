@@ -3,6 +3,8 @@ var elasticsearch = require('elasticsearch');
 var insert = require("./insertdata.js")
 var create = require("./createIndex.js")
 var config = require("./config.js")
+const db = require('dropbox-stream');
+var fs = require('fs');
 
 
 var client = new elasticsearch.Client({
@@ -10,19 +12,36 @@ var client = new elasticsearch.Client({
   log: 'trace'
 });
 
+const dfs = require('dropbox-fs') ({
+    apiKey: config.DROPBOX_API_KEY
+});
+
 var options = {
     contentType: 'application/pdf'
 };
 
 indexName = config.INDEX_NAME
-type = config.TYPE
-fileName = config.FILE_NAME
+// type = config.TYPE
+// fileName = config.FILE_NAME
 
-tika.text(fileName, options, (err, text) => {
+
+dfs.readdir('/test', (err, result) => {
+    console.log(result);
+
+for (file in result) {
+tika.text(result[file], options, (err, text) => {
     if (err) {
-        throw Error;
-    }
-    create.createIndex(indexName, type);
-    insert.insertData(indexName, type,text);
+        console.log(err);
+        }
+        
+        create.createIndex(indexName);
+        insert.insertData(indexName,text);
 
+    });
+}
 })
+
+
+
+    
+

@@ -9,7 +9,6 @@ var client = new elasticsearch.Client({
 
 client.search({
     index: config.INDEX_NAME,
-    type: config.TYPE,
     q: config.SEARCH_CONTENT,
 }).then(function(resp) {
     for (const data of resp.hits.hits) {

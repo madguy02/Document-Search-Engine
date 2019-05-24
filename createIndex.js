@@ -7,10 +7,10 @@ var client = new elasticsearch.Client({
   });
 
 module.exports = {
-createIndex: function(indexName,type) {
+createIndex: function(indexName) {
     client.indices.create ({
         index: indexName,
-        type: type
+        // type: type
     }).then((resp) => {
         console.log(resp);
     }, (err) => {

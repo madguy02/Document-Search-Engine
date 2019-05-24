@@ -8,10 +8,10 @@ var client = new elasticsearch.Client({
   });
 
 module.exports = {
-insertData: function(indexName, type, text) {
+insertData: function(indexName, text) {
     client.index ({
         index: config.INDEX_NAME,
-        type: config.TYPE,
+        // type: config.TYPE,
         body: {
             "content": text
         }

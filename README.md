@@ -13,6 +13,7 @@
 4) Execute `node dropbox.js` to get the files from dropbox
 4) Execute `node indexdata.js`
 5) Once indexing is completed.
-6) Run search.js with necessary changes on config.js on what to search
+6) Run `node app.js` to start search server
+7) Navigate to `127.0.0.1:3001/search?q="<insert search text here>"
 
 ```

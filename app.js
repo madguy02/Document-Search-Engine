@@ -33,11 +33,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function(req, res){
-  res.sendFile('index.html', {
-     root: path.join( __dirname, 'views' )
-   });
-})
  
 app.get('/search', function (req, res){
 
@@ -56,6 +51,7 @@ app.get('/search', function (req, res){
 }).then(function(resp) {
     for (const data of resp.hits.hits) {
         console.log(data);
+        res.send(data._source.content);
     }
 }, (err) =>{
     console.log(err);

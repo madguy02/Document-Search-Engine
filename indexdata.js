@@ -3,8 +3,7 @@ var elasticsearch = require('elasticsearch');
 var insert = require("./insertdata.js")
 var create = require("./createIndex.js")
 var config = require("./config.js")
-const db = require('dropbox-stream');
-var fs = require('fs');
+
 
 
 var client = new elasticsearch.Client({
@@ -33,7 +32,7 @@ tika.text(result[file], options, (err, text) => {
     if (err) {
         console.log(err);
         }
-        
+
         create.createIndex(indexName);
         insert.insertData(indexName,text);
 

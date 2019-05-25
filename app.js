@@ -44,7 +44,7 @@ app.get('/search', function (req, res){
   let body = {
     query: {
       match: {
-          content: req.query['q']
+       content: req.query['q']
       }
     }
   }
@@ -52,6 +52,7 @@ app.get('/search', function (req, res){
   client.search({
     index: config.INDEX_NAME,
     body: body,
+    
 }).then(function(resp) {
     for (const data of resp.hits.hits) {
         console.log(data);

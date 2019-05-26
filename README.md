@@ -1,8 +1,5 @@
 ### Document Search Engine
 
-##### (Day 1) Date 24/05/2019 : This is the very first iteration of the search engine written in JS. This will develop gradually in the coming days until deadline.
-
-##### (Day 2) Added DropBox api for file downloads and integrated with indexing and searching
 
 ##### Steps to Execute current code
 

@@ -15,9 +15,7 @@ const dfs = require('dropbox-fs') ({
     apiKey: config.DROPBOX_API_KEY
 });
 
-var options = {
-    contentType: 'application/pdf'
-};
+
 
 indexName = config.INDEX_NAME
 // type = config.TYPE
@@ -28,7 +26,7 @@ dfs.readdir('/test', (err, result) => {
     console.log(result);
 
 for (file in result) {
-tika.text(result[file], options, (err, text) => {
+tika.text(result[file],  (err, text) => {
     if (err) {
         console.log(err);
         }

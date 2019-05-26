@@ -33,12 +33,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/', function(req, res){
+    res.sendFile('index.html', {
+       root: path.join( __dirname, 'views' )
+     });
+  })
  
 app.get('/search', function (req, res){
 
   let body = {
     query: {
-      match: {
+      match_phrase: {
        content: req.query['q']
       }
     }

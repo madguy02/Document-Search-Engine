@@ -1,0 +1,37 @@
+
+<html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        
+            
+                
+        </head>
+            <body>
+                <center><h3>Search Engine Demo</h3></center>
+                <input type= "text" id = "data" placeholder="Search..">
+                <input type = "button" onclick="Click()" value = "submit" id="btn">
+                <br>
+                <br>
+                <br>
+                <div id = "test">
+
+                </div>
+                <script>
+                function Click() {
+                var data = document.getElementById("data").value;
+                console.log(data);
+                url = "http://127.0.0.1:3001/search?q=".concat(data);
+                var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("test").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+                }
+            </script>
+            </body>
+</html>

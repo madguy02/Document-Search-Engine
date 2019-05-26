@@ -21,3 +21,5 @@
 #### Screen Shots
 
 ![searchengine_result](https://github.com/madguy02/Document-Search-Engine/blob/master/searchengine-1.png)
+
+![searchengine_result2] (https://github.com/madguy02/Document-Search-Engine/blob/master/searchengine-2.png)

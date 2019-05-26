@@ -18,6 +18,6 @@
 
 ```
 
-####Screen Shots
+#### Screen Shots
 
-![searchengine_result](https://drive.google.com/open?id=1wvfUAuwYYA61SemvByi6MgiXjttAfSCk)
+![searchengine_result](https://github.com/madguy02/Document-Search-Engine/blob/master/searchengine-1.png)

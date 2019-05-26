@@ -17,3 +17,7 @@
 7) Navigate to `127.0.0.1:3001/search?q="<insert search text here>"
 
 ```
+
+####Screen Shots
+
+![searchengine_result](https://drive.google.com/open?id=1wvfUAuwYYA61SemvByi6MgiXjttAfSCk)

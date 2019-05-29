@@ -1,14 +1,15 @@
-
-const elasticsearch = require('elasticsearch');
-const client = new elasticsearch.Client({
-   hosts: [ 'http://localhost:9200']
-});
-
 const express = require( 'express' );
 const app     = express();
 const bodyParser = require('body-parser')
 const path    = require( 'path' );
 const config = require("./config.js")
+const elasticsearch = require('elasticsearch');
+
+const client = new elasticsearch.Client({
+   hosts: config.ELASTIC_URL
+});
+
+
 
 
 client.ping({
@@ -18,20 +19,15 @@ client.ping({
      if (error) {
          console.error('elasticsearch cluster is down!');
      } else {
-         console.log('Everything is ok');
+         console.log('Elastic cluster in up');
      }
  });
 
  
 app.use(bodyParser.json())
-app.set( 'port', process.env.PORT || 3001 );
-app.use( express.static( path.join( __dirname, 'public' )));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.set( 'port', process.env.PORT || config.SERVER_PORT );
+//app.use( express.static( path.join( __dirname, 'public' )));
+
 
 app.get('/', function(req, res){
     res.sendFile('index.html', {
@@ -40,14 +36,6 @@ app.get('/', function(req, res){
   })
  
 app.get('/search', function (req, res){
-
-//   let body = {
-//     query: {
-//       match_phrase: {
-//        content: req.query['q']
-//       }
-//     }
-//   }
 
 let body = {
     query: {
@@ -72,8 +60,9 @@ let body = {
 }).then(function(resp) {
     for (const data of resp.hits.hits) {
         console.log(data);
-        res.send(data._source.content);
+        
     }
+    res.send(resp) //(data._source.content);
 }, (err) =>{
     console.log(err);
 })

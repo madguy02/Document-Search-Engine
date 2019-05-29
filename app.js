@@ -41,13 +41,29 @@ app.get('/', function(req, res){
  
 app.get('/search', function (req, res){
 
-  let body = {
+//   let body = {
+//     query: {
+//       match_phrase: {
+//        content: req.query['q']
+//       }
+//     }
+//   }
+
+let body = {
     query: {
-      match_phrase: {
-       content: req.query['q']
-      }
+        bool: {
+            should: [ 
+                {
+                multi_match: {
+                fields: ["content"],
+                query: req.query['q'],
+                fuzziness: "AUTO"
+                }
+            }
+            ]
+        }
     }
-  }
+}
   
   client.search({
     index: config.INDEX_NAME,
